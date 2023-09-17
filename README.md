@@ -18,26 +18,26 @@ Asegúrate de tener instalado lo siguiente en tu máquina:
 ```
 
 
-2. Ejecuta el siguiente comando para levantar los contenedores Docker:
-
-```bash
-docker-compose up
-```
-
-3. Accede al contenedor de la aplicación e ingresa a la raiz del proyecto:
-
-```bash
-docker exec -it notifications sh
-cd notifications/
-```
-
-
-4. Ejecuta el siguiente comando para copiar el archivo de configuracion ejemplo y luego configura el '.env':
+2. Ejecuta el siguiente comando para copiar el archivo de configuracion ejemplo y luego configura el '.env':
 
 ```bash
 cp .env.example .env
 ```
 
+
+3. Ejecuta el siguiente comando para levantar los contenedores Docker:
+
+```bash
+docker-compose up
+```
+
+
+4. Accede al contenedor de la aplicación e ingresa a la raiz del proyecto:
+
+```bash
+docker exec -it notifications sh
+cd notifications/
+```
 
 
 5. Dentro del contenedor, instala las dependencias de Composer:
