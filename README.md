@@ -61,6 +61,14 @@ npm run dev
 ```
 
 
+8. Ejecuta los comandos para crear las bases de datos:
+
+```bash
+php artisan make:database cintelink
+php artisan make:database cintelink_test
+```
+
+
 8. Ejecuta las migraciones de la base de datos para crear las tablas:
 
 ```bash

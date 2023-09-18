@@ -20,4 +20,4 @@ yarn-error.log
 
 
 # Nginx
-docker/images/nginx/config/sites/*.conf
+# docker/images/nginx/config/sites/*.conf
