@@ -1,4 +1,4 @@
-# Instrucciones para el despliegue de la aplicación Notifications Real-time
+# Instrucciones para el despliegue de la aplicación Notifications Real-time con Laravel
 
 Estas instrucciones te guiarán a través del proceso de despliegue de una aplicación Notifications Real-time utilizando Docker.
 
