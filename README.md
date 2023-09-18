@@ -28,11 +28,21 @@ cp .env.example .env
 3. Ejecuta el siguiente comando para levantar los contenedores Docker:
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
 
-4. Accede al contenedor de la aplicación e ingresa a la raiz del proyecto:
+4. Accede al contenedor del mysql para crear las bases de datos:
+
+```bash
+docker exec -it database sh
+mysql -u root -p
+CREATE DATABASE cintelink;
+CREATE DATABASE cintelink_test;
+```
+
+
+5. Accede al contenedor de la aplicación e ingresa a la raiz del proyecto:
 
 ```bash
 docker exec -it notifications sh
@@ -40,32 +50,24 @@ cd notifications/
 ```
 
 
-5. Dentro del contenedor, instala las dependencias de Composer:
+6. Dentro del contenedor, instala las dependencias de Composer:
 
 ```bash
 composer install
 ```
 
 
-6. A continuación, instala las dependencias de npm:
+7. A continuación, instala las dependencias de npm:
 
 ```bash
 npm install
 ```
 
 
-7. Compila los activos de la aplicación:
+8. Compila los activos de la aplicación:
 
 ```bash
-npm run dev
-```
-
-
-8. Ejecuta los comandos para crear las bases de datos:
-
-```bash
-php artisan make:database cintelink
-php artisan make:database cintelink_test
+npm run build
 ```
 
 
