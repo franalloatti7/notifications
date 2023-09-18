@@ -24,15 +24,21 @@ Asegúrate de tener instalado lo siguiente en tu máquina:
 cp .env.example .env
 ```
 
+3. Aquí aparte de las credenciales para la conexion a la base de datos hace falta configurar las credenciales para el Pusher:
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
 
-3. Ejecuta el siguiente comando para levantar los contenedores Docker:
+
+4. Ejecuta el siguiente comando para levantar los contenedores Docker:
 
 ```bash
 docker-compose up -d
 ```
 
 
-4. Accede al contenedor del mysql para crear las bases de datos:
+5. Accede al contenedor del mysql para crear las bases de datos:
 
 ```bash
 docker exec -it database sh
@@ -44,7 +50,7 @@ exit
 ```
 
 
-5. Accede al contenedor de la aplicación e ingresa a la raiz del proyecto:
+6. Accede al contenedor de la aplicación e ingresa a la raiz del proyecto:
 
 ```bash
 docker exec -it notifications sh
@@ -52,42 +58,42 @@ cd notifications/
 ```
 
 
-6. Dentro del contenedor, instala las dependencias de Composer:
+7. Dentro del contenedor, instala las dependencias de Composer:
 
 ```bash
 composer install
 ```
 
 
-7. A continuación, instala las dependencias de npm:
+8. A continuación, instala las dependencias de npm:
 
 ```bash
 npm install
 ```
 
 
-8. Compila los activos de la aplicación:
+9. Compila los activos de la aplicación:
 
 ```bash
 npm run build
 ```
 
 
-9. Ejecuta las migraciones de la base de datos para crear las tablas:
+10. Ejecuta las migraciones de la base de datos para crear las tablas:
 
 ```bash
 php artisan migrate
 ```
 
 
-10. Ejecuta el siguiente comando, para cargar datos de inicio:
+11. Ejecuta el siguiente comando, para cargar datos de inicio:
 
 ```bash
 php artisan db:seed
 ```
 
 
-11. Ahora, puedes acceder a tu aplicación en el siguiente enlace:
+12. Ahora, puedes acceder a tu aplicación en el siguiente enlace:
 
 ```bash
 http://notifications.local/
