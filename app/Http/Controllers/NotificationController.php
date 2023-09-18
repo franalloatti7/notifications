@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
+use App\Models\Tag;
 use App\Models\User;
 use App\Notifications\NotifyNotification;
 use Illuminate\Http\RedirectResponse;
@@ -39,14 +40,14 @@ class NotificationController extends Controller
 
         $users = DB::table('tag_user')
         ->join('tags', 'tags.id', '=', 'tag_user.tag_id')
-        ->where('tags.name',$request->tag)->get();
+        ->where('tags.id',$request->tag)->get();
 
         foreach($users as $user){
             $the_user = User::where('id', $user->user_id)->get()->first();
             $the_user->notify(new NotifyNotification($request->tag, $request->message));
         }
 
-        $pusher->trigger($request->tag, 'App\\Events\\NotifyEvent', $data);
+        $pusher->trigger($request->tag.'-channel', 'App\\Events\\NotifyEvent', $data);
 
         return json_encode(['message' => 'Publicación realizada con éxito']);
     }
@@ -60,11 +61,18 @@ class NotificationController extends Controller
 
     public function getMyNotifications(){
         $readNotifications = auth()->user()->readNotifications->take(5);
+        $tags = Tag::all();
         foreach($readNotifications as $notification){
+            $data = $notification->data;
+            $data['tag'] = $tags->where('id', $data['tag'])->first()->name;
+            $notification->data = $data;
             $notification->createdAt = $notification->created_at->diffForHumans();
         }
         $unReadNotifications = auth()->user()->unreadNotifications->take(5);
         foreach($unReadNotifications as $notification){
+            $data = $notification->data;
+            $data['tag'] = $tags->where('id', $data['tag'])->first()->name;
+            $notification->data = $data;
             $notification->createdAt = $notification->created_at->diffForHumans();
         }
         return json_encode(['read' => $readNotifications, 'unread' => $unReadNotifications]);

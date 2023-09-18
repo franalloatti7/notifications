@@ -39,6 +39,8 @@ docker exec -it database sh
 mysql -u root -p
 CREATE DATABASE cintelink;
 CREATE DATABASE cintelink_test;
+exit
+exit
 ```
 
 

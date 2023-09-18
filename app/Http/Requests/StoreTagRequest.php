@@ -22,7 +22,22 @@ class StoreTagRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string'],
+            'name' => ['required', 'string', 'max:255'],
+            'code' => [],
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            "name.required" => "El nombre es requerido",
+            "name.string" => "El nombre debe ser una cadena de texto",
+            "name.max" => "El nombre no debe ser mayor a 255 caracteres",
         ];
     }
 }

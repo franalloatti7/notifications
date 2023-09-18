@@ -26,4 +26,19 @@ class StoreEventRequest extends FormRequest
             'message' => ['required', 'string'],
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            "tag.required" => "El tag es requerido",
+            "tag.string" => "El tag debe ser una cadena de texto",
+            "message.required" => "El mensaje es requerido",
+            "message.string" => "El mensaje debe ser una cadena de texto",
+        ];
+    }
 }

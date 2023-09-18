@@ -16,7 +16,7 @@
                         {{ __('Tags') }}
                     </x-nav-link>
                     @if(Auth::user()->role == 'admin')
-                    <x-nav-link x-data="" x-on:click.prevent="$dispatch('open-modal', 'modal-publish')"
+                    <x-nav-link x-data="" x-on:click.prevent="$dispatch('open-modal', 'modal-publish')" style="cursor: pointer;"
                         >{{ __('Publicar evento') }}
                     </x-nav-link>
                     @endif
