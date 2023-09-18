@@ -19,7 +19,7 @@ class CreateDatabaseCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command create database';
+    protected $description = 'Comando para crear base de datos';
 
     /**
      * Execute the console command.
@@ -33,10 +33,10 @@ class CreateDatabaseCommand extends Command
    
             if(empty($hasDb)) {
                 DB::select('CREATE DATABASE '. $dbname);
-                $this->info("Database '$dbname' created successfully.");
+                $this->info("La base de datos '$dbname' fue creada con éxito.");
             }
             else {
-                $this->info("Database $dbname already exists.");
+                $this->info("La base de datos $dbname ya existe.");
             }
         }
         catch (\Exception $e){

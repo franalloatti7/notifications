@@ -69,21 +69,21 @@ php artisan make:database cintelink_test
 ```
 
 
-8. Ejecuta las migraciones de la base de datos para crear las tablas:
+9. Ejecuta las migraciones de la base de datos para crear las tablas:
 
 ```bash
 php artisan migrate
 ```
 
 
-9. Ejecuta el siguiente comando, para cargar datos de inicio:
+10. Ejecuta el siguiente comando, para cargar datos de inicio:
 
 ```bash
 php artisan db:seed
 ```
 
 
-10. Ahora, puedes acceder a tu aplicación en el siguiente enlace:
+11. Ahora, puedes acceder a tu aplicación en el siguiente enlace:
 
 ```bash
 http://notifications.local/
